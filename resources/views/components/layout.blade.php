@@ -18,7 +18,7 @@
         </div>
 
         <div>
-            <a href="#">Log-in</a>
+            <a href="{{route("login")}}">Log-in</a>
         </div>
     </header>
 
