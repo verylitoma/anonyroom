@@ -9,3 +9,4 @@ Route::view("/register", "auth.register")->name("register");
 Route::post("/register", [authController::class, "register"]);
 
 Route::view("login", "auth.login")->name("login");
+Route::post("/login", [authController::class, "login"]);

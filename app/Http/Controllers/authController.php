@@ -25,4 +25,21 @@ class authController extends Controller
         //redirect
         return redirect()->route("home");
     }
+
+    public function login(Request $request){
+        //validate
+        $fields = $request->validate([
+            "email" => ["required", "max:255", "email"],
+            "password" => ["required", "min:3"],
+        ]);
+
+        //attempt to login
+        if(Auth::attempt($fields, $request->remember)){
+            return redirect()->intended();
+        }else {
+            return back()->withErrors([
+                "failed" => "Failed Authentification"
+            ]);
+        }
+    }
 }
